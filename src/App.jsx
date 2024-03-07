@@ -1,10 +1,12 @@
-import Player from "./Player/Player";
-import "./Player/player.scss";
-import { songsdata } from "./Player/AudioData.js";
+import Player from "./components/Player/Player.jsx";
+import Nav from "./components/Nav/Nav.jsx";
+import "./App.scss";
+import { songsdata } from "./components/Player/AudioData.js";
 import { useRef, useState, useEffect } from "react";
 
 const App = () => {
   const [songs, setSongs] = useState(songsdata);
+  const [libraryStatus, setLibraryStatus] = useState(false);
   const [isplaying, setisplaying] = useState(false);
   const [currentSong, setCurrentSong] = useState(songsdata[1]);
 
@@ -30,7 +32,8 @@ const App = () => {
   };
 
   return (
-    <div className="center-content">
+    <div className={`${libraryStatus?'library-active':''}`}>
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onPlaying} />
       <Player
         songs={songs}
@@ -41,6 +44,7 @@ const App = () => {
         currentSong={currentSong}
         setCurrentSong={setCurrentSong}
       />
+      
     </div>
   );
 };

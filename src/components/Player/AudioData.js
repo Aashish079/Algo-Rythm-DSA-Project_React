@@ -1,21 +1,34 @@
-import song1 from "../assets/music/02. Paul Flint - Savage.mp3";
-import song3 from "../assets/music/03. Retrovision - Puzzle.mp3";
-import song2 from "../assets/music/04. Syn Cole - Feel Good.mp3";
+import song1 from "../../assets/music/02. Paul Flint - Savage.mp3";
+import song2 from "../../assets/music/04. Syn Cole - Feel Good.mp3";
+import song3 from "../../assets/music/03. Retrovision - Puzzle.mp3";
 
 const songsdata = [
-    {
-        "title": "Paul Flint - Savage",
-        "url": song1
-    },
-    {
-        "title": "Retrovision - Puzzle",
-        "url": song2
-    },
-    {
-        "title": "Syn Cole - Feel Good",
-        "url": song3
-    }
-]
+  {
+    title: "Paul Flint - Savage",
+    artist: "Paul Flint",
+    artistCover:
+      "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/352/325x325/1597165641_NFWo1NewLF_Paul-Flint.png",
+      cover: "https://i1.sndcdn.com/artworks-000178640584-kie7ij-t500x500.jpg",
+    url: song1,
+  },
+  {
+    title: "Retrovision - Puzzle",
+    artist: "Retrovision",
+    artistCover:
+      "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/377/325x325/1597166077_RAHYVPaDfQ_RetroVision.png",
+      cover: "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg",
+    url: song2,
+  },
+  {
+    title: "Syn Cole - Feel Good",
+    artist: "Syn Cole",
+    artistCover:
+      "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/434/325x325/1597179223_bgwJeQP8Gl_Syn-Cole.png",
+    cover: "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg",
+    url: song3,
+
+  },
+];
 export { songsdata };
 
 //Better Data
