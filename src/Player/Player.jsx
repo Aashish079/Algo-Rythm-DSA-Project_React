@@ -57,6 +57,9 @@ const Player = ({audioElem, isPlaying, setIsPlaying, currentSong, setCurrentSong
 
   return (
     <div className='player_container'>
+      <div className='cover'>
+        <img src={currentSong.cover} alt={currentSong.title}/>
+      </div>
       <div className="title">
         <p>{currentSong.title}</p>
       </div>
