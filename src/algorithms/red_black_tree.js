@@ -31,7 +31,7 @@ class RedBlackTree {
   }
 
   insert(parent, newNode) {
-    if (this.isKeyGreater(newNode, parent)) {
+    if (this.isNewnodeKeyGreater(newNode, parent)) {
       if (parent.right == null) {
         parent.right = newNode;
         newNode.parent = parent;
@@ -55,6 +55,7 @@ class RedBlackTree {
   //checks for if two consecutive trees are red
   checkColor(node) {
     if (node == this.root) {
+      node.black = true;
       return;
     }
     if (!node.black && !node.parent.black) {
@@ -192,12 +193,15 @@ class RedBlackTree {
     this.leftRotate(node);
   }
 
-  isKeyGreater(newNode, parent) {
+  isNewnodeKeyGreater(newNode, parent) {
     return newNode.key > parent.key;
   }
 
   ascendingOrder() {
     this.inOrderTraversal(this.root);
+  }
+  descendingOrder() {
+    this.reverseOrderTraversal(this.root);
   }
 
   inOrderTraversal(node) {
@@ -207,6 +211,15 @@ class RedBlackTree {
     this.inOrderTraversal(node.left);
     console.log(node.key);
     this.inOrderTraversal(node.right);
+  }
+
+  reverseOrderTraversal(node) {
+    if (node == null) {
+      return;
+    }
+    this.reverseOrderTraversal(node.right);
+    console.log(node.key);
+    this.reverseOrderTraversal(node.left);
   }
 }
 
@@ -219,3 +232,5 @@ tree.add("aang", 2);
 tree.add("zing", 6);
 tree.add("zong", 23);
 tree.ascendingOrder();
+console.log(" ");
+tree.descendingOrder();
