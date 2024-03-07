@@ -2,6 +2,7 @@ import Player from "./Player/Player";
 import "./Player/player.scss";
 import { songsdata } from "./Player/AudioData.js";
 import { useRef, useState, useEffect } from "react";
+import SearchBar from "./Player/Search.js";
 
 const App = () => {
   const [songs, setSongs] = useState(songsdata);
