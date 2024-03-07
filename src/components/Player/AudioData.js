@@ -1,6 +1,6 @@
-import song1 from "../assets/music/02. Paul Flint - Savage.mp3";
-import song2 from "../assets/music/04. Syn Cole - Feel Good.mp3";
-import song3 from "../assets/music/03. Retrovision - Puzzle.mp3";
+import song1 from "../../assets/music/02. Paul Flint - Savage.mp3";
+import song2 from "../../assets/music/04. Syn Cole - Feel Good.mp3";
+import song3 from "../../assets/music/03. Retrovision - Puzzle.mp3";
 
 const songsdata = [
   {

@@ -1,18 +1,19 @@
 .player_container {
-    width: 50%;
-    padding: 1rem;
-    border: 1px solid rgb(141, 141, 141);
-    border-radius: 10px;
-    color: rgb(218, 218, 218);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    background-color: black;  
-    position:absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  width:100%;
+  padding: 1rem;
+  // border: 1px solid rgb(141, 141, 141);
+  border-radius: 10px;
+  height: calc(100% - 80px); // Subtract the height of the navbar
+  color: rgb(218, 218, 218);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;  
+  position:absolute;
+  top: 80px; // Position below the navbar
+  left: 50%;
+  transform: translateX(-50%);
   background-color: black;
 
   > * {
@@ -24,7 +25,7 @@
     font-size: inherit;
   }
   .navigation {
-    width: 100%;
+    width: 50%;
 
     .navigation_wrapper {
       min-width: 100%;
