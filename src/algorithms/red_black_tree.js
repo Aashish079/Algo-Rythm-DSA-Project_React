@@ -223,14 +223,18 @@ class RedBlackTree {
   }
 }
 
-const tree = new RedBlackTree();
-tree.add("apil", 10);
-tree.add("bily", 5);
-tree.add("anup", 1);
-tree.add("kshitiz", 40);
-tree.add("aang", 2);
-tree.add("zing", 6);
-tree.add("zong", 23);
-tree.ascendingOrder();
-console.log(" ");
-tree.descendingOrder();
+export default RedBlackTree;
+
+//Implementation example
+
+// const tree = new RedBlackTree();
+// tree.add("apil", 10);
+// tree.add("bily", 5);
+// tree.add("anup", 1);
+// tree.add("kshitiz", 40);
+// tree.add("aang", 2);
+// tree.add("zing", 6);
+// tree.add("zong", 23);
+// tree.ascendingOrder();
+// console.log(" ");
+// tree.descendingOrder();
