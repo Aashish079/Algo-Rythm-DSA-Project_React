@@ -1,16 +1,17 @@
 import Player from "./Player/Player";
 import "./Player/player.scss";
-import { songsdata } from "./Player/AudioData.js";
 import { useRef, useState, useEffect } from "react";
+import { song_dll } from "./Player/AudioData.js";
+import { BsArrowsExpandVertical } from "react-icons/bs";
 
 const App = () => {
-  const [songs, setSongs] = useState(songsdata);
+  const [songs, setSongs] = useState(song_dll);
   const [isplaying, setisplaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(songsdata[1]);
+  const [currentSong, setCurrentSong] = useState(window.current_song_ptr);
 
   const audioElem = useRef();
 
-  useEffect(() => {
+  useEffect(() => {songs
     if (isplaying) {
       audioElem.current.play();
     } else {
@@ -31,7 +32,11 @@ const App = () => {
 
   return (
     <div className="center-content">
-      <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onPlaying} />
+      <audio
+        src={currentSong.data.url}
+        ref={audioElem}
+        onTimeUpdate={onPlaying}
+      />
       <Player
         songs={songs}
         setSongs={setSongs}

@@ -1,22 +1,40 @@
+import DoublyLinkedList from "../algorithms/dll";
 import song1 from "../assets/music/02. Paul Flint - Savage.mp3";
 import song3 from "../assets/music/03. Retrovision - Puzzle.mp3";
 import song2 from "../assets/music/04. Syn Cole - Feel Good.mp3";
 
-const songsdata = [
-    {
-        "title": "Paul Flint - Savage",
-        "url": song1
-    },
-    {
-        "title": "Retrovision - Puzzle",
-        "url": song2
-    },
-    {
-        "title": "Syn Cole - Feel Good",
-        "url": song3
-    }
-]
-export { songsdata }; // change hello 
+
+
+class song_node {
+  constructor() {
+    this.title = null;
+    this.url = null;
+  }
+}
+
+const s1 = new song_node();
+const s3 = new song_node();
+const s2 = new song_node();
+
+s1.title = "Paul Flint - Savage";
+s1.url = song1;
+
+s2.title = "Syn Cole - Feel Good";
+s2.url = song2;
+
+s3.title = "Retrovision - Puzzle";
+s3.url = song3;
+
+const song_dll = new DoublyLinkedList();
+song_dll.pushBack(s1);
+song_dll.pushBack(s2);
+song_dll.pushBack(s3);
+
+
+
+window.current_song_ptr = song_dll.head;
+export {  song_dll, song_node };
+
 
 //Better Data
 // let savage = {
