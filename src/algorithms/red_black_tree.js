@@ -58,10 +58,14 @@ class RedBlackTree {
       node.black = true;
       return;
     }
-    if (!node.black && !node.parent.black) {
-      this.correctTree(node);
+    if (!node) {
+      if (!node.parent) {
+        if (!node.black && !node.parent.black) {
+          this.correctTree(node);
+        }
+        this.checkColor(node.parent);
+      }
     }
-    this.checkColor(node.parent);
   }
 
   //corrects tree
@@ -154,10 +158,10 @@ class RedBlackTree {
         temp.isLeftChild = false;
         node.parent.right = temp;
       }
-      temp.left = node;
-      temp.isLeftChild = true;
-      node.parent = temp;
     }
+    temp.left = node;
+    temp.isLeftChild = true;
+    node.parent = temp;
   }
 
   rightRotate(node) {
@@ -170,13 +174,15 @@ class RedBlackTree {
     if (node.parent == null) {
       this.root = temp;
       temp.parent = null;
-    }
-    if (node.isLeftChild) {
-      temp.isLeftChild = true;
-      node.parent.left = temp;
     } else {
-      temp.isLeftChild = false;
-      node.parent.right = temp;
+      temp.parent = node.parent;
+      if (node.isLeftChild) {
+        temp.isLeftChild = true;
+        node.parent.left = temp;
+      } else {
+        temp.isLeftChild = false;
+        node.parent.right = temp;
+      }
     }
     temp.right = node;
     node.isLeftChild = false;
@@ -197,21 +203,12 @@ class RedBlackTree {
     return newNode.key > parent.key;
   }
 
-  // ascendingOrder() {
-  //   const sortedList = this.inOrderTraversal(this.root);
-  //   return sortedList;
-  // }
-  // descendingOrder() {
-  //   const sortedList = this.reverseOrderTraversal(this.root);
-  //   return sortedList;
-  // }
-
   inOrderTraversal(node, sortedArray = []) {
     if (node == null) {
       return;
     }
     this.inOrderTraversal(node.left, sortedArray);
-    sortedArray.push(node);
+    sortedArray.push(node.value);
     this.inOrderTraversal(node.right, sortedArray);
     return sortedArray;
   }
@@ -220,9 +217,9 @@ class RedBlackTree {
     if (node == null) {
       return;
     }
-    this.reverseOrderTraversal(node.right, sortedArray);
-    sortedArray.push(node);
-    this.reverseOrderTraversal(node.left, sortedArray);
+    this.inOrderTraversal(node.right, sortedArray);
+    sortedArray.push(node.value);
+    this.inOrderTraversal(node.left, sortedArray);
     return sortedArray;
   }
 }
