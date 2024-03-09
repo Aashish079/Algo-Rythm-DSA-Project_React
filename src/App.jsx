@@ -40,8 +40,9 @@ const App = () => {
         setSongs={setSongs}
         libraryStatus={libraryStatus}
         setLibraryStatus={setLibraryStatus}
-        // setIsInFavorites={setIsInFavorites}
-        // favoriteSongs={favoriteSongs}
+        currentSong={currentSong}
+        setCurrentSong={setCurrentSong}
+
       />
       <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onPlaying} />
       <Player
