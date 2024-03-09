@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMusic } from '@fortawesome/free-solid-svg-icons';
 
 import './Nav.scss';
+import Library from '../Library/Library';
 
 const Nav = ({ libraryStatus, setLibraryStatus }) => {
     return (
@@ -14,6 +15,7 @@ const Nav = ({ libraryStatus, setLibraryStatus }) => {
                 Library &nbsp;
                 <FontAwesomeIcon icon={faMusic} />
             </button>
+            <Library/>
         </nav>
     );
 }
