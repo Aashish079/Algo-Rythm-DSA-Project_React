@@ -19,8 +19,7 @@ const Player = ({audioElem, isPlaying, setIsPlaying, currentSong, setCurrentSong
     const offset = e.nativeEvent.offsetX;
 
     const divprogress = offset / width * 100;
-    console.log(divprogress)
-    console.log(currentSong.length)
+
     audioElem.current.currentTime = divprogress / 100 * currentSong.length;
 
   }
@@ -39,6 +38,7 @@ const Player = ({audioElem, isPlaying, setIsPlaying, currentSong, setCurrentSong
   const skiptoNext = ()=>
   {
     if (window.current_song_ptr.next !== null) {
+      console.log(window.current_song_ptr.next);
       window.current_song_ptr = window.current_song_ptr.next;
       setCurrentSong(window.current_song_ptr);
     }

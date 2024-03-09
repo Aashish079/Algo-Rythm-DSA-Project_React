@@ -14,7 +14,7 @@ const App = () => {
   const [isplaying, setisplaying] = useState(false);
 
   const audioElem = useRef();
-
+  // song_dll.display();
   useEffect(() => {
     if (isplaying) {
       audioElem.current.play();
@@ -26,7 +26,7 @@ const App = () => {
   const onPlaying = () => {
     const duration = audioElem.current.duration;
     const ct = audioElem.current.currentTime;
-    console.log(currentSong)
+
     setCurrentSong_dll({
       ...currentSong_dll,
       progress: (ct / duration) * 100,
