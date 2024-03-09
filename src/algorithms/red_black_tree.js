@@ -197,29 +197,33 @@ class RedBlackTree {
     return newNode.key > parent.key;
   }
 
-  ascendingOrder() {
-    this.inOrderTraversal(this.root);
-  }
-  descendingOrder() {
-    this.reverseOrderTraversal(this.root);
-  }
+  // ascendingOrder() {
+  //   const sortedList = this.inOrderTraversal(this.root);
+  //   return sortedList;
+  // }
+  // descendingOrder() {
+  //   const sortedList = this.reverseOrderTraversal(this.root);
+  //   return sortedList;
+  // }
 
-  inOrderTraversal(node) {
+  inOrderTraversal(node, sortedArray = []) {
     if (node == null) {
       return;
     }
-    this.inOrderTraversal(node.left);
-    console.log(node.key);
-    this.inOrderTraversal(node.right);
+    this.inOrderTraversal(node.left, sortedArray);
+    sortedArray.push(node);
+    this.inOrderTraversal(node.right, sortedArray);
+    return sortedArray;
   }
 
-  reverseOrderTraversal(node) {
+  reverseOrderTraversal(node, sortedArray = []) {
     if (node == null) {
       return;
     }
-    this.reverseOrderTraversal(node.right);
-    console.log(node.key);
-    this.reverseOrderTraversal(node.left);
+    this.reverseOrderTraversal(node.right, sortedArray);
+    sortedArray.push(node);
+    this.reverseOrderTraversal(node.left, sortedArray);
+    return sortedArray;
   }
 }
 

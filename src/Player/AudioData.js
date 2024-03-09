@@ -1,22 +1,46 @@
-import song1 from "../assets/music/02. Paul Flint - Savage.mp3";
-import song3 from "../assets/music/03. Retrovision - Puzzle.mp3";
-import song2 from "../assets/music/04. Syn Cole - Feel Good.mp3";
+// import song1 from "../assets/music/02. Paul Flint - Savage.mp3";
+// import song3 from "../assets/music/03. Retrovision - Puzzle.mp3";
+// import song2 from "../assets/music/04. Syn Cole - Feel Good.mp3";
 
-const songsdata = [
-    {
-        "title": "Paul Flint - Savage",
-        "url": song1
-    },
-    {
-        "title": "Retrovision - Puzzle",
-        "url": song2
-    },
-    {
-        "title": "Syn Cole - Feel Good",
-        "url": song3
+import fs from "fs";
+
+const directoryPath = "../assets/music";
+
+// Read the contents of the directory
+const readDirectory = async (directoryPath) => {
+  const file_array = await fs.readdir(directoryPath, (err, files) => {
+    const array = [];
+    if (err) {
+      console.error("Error reading directory:", err);
+      return;
     }
-]
-export { songsdata };
+
+    files.forEach((file) => {
+      array.push(file);
+    });
+    return array;
+  });
+  return file_array;
+};
+
+const data = setTimeout(() => readDirectory(directoryPath), 50);
+console.log(data);
+
+// const songsdata = [
+//   {
+//     title: "Paul Flint - Savage",
+//     url: song1,
+//   },
+//   {
+//     title: "Retrovision - Puzzle",
+//     url: song2,
+//   },
+//   {
+//     title: "Syn Cole - Feel Good",
+//     url: song3,
+//   },
+// ];
+// export { songsdata };
 
 //Better Data
 // let savage = {
