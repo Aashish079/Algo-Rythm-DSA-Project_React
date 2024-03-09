@@ -21,14 +21,14 @@ const App = () => {
     } else {
       audioElem.current.pause();
     }
-  }, [isplaying, currentSong]);
+  }, [isplaying, currentSong, currentSong_dll]);
 
   const onPlaying = () => {
     const duration = audioElem.current.duration;
     const ct = audioElem.current.currentTime;
-
-    setCurrentSong({
-      ...currentSong,
+    console.log(currentSong)
+    setCurrentSong_dll({
+      ...currentSong_dll,
       progress: (ct / duration) * 100,
       length: duration,
     });
@@ -42,8 +42,10 @@ const App = () => {
         setSongs={setSongs}
         libraryStatus={libraryStatus}
         setLibraryStatus={setLibraryStatus}
-        currentSong={currentSong_dll}
-        setCurrentSong={setCurrentSong_dll}
+        currentSong={currentSong}
+        setCurrentSong={setCurrentSong}
+        currentSong_dll={currentSong_dll}
+        setCurrentSong_dll={setCurrentSong_dll}
 
       />
       <audio src={currentSong_dll.data.url} ref={audioElem} onTimeUpdate={onPlaying} />
