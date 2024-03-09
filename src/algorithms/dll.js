@@ -93,6 +93,7 @@ class DoublyLinkedList {
     return removedData;
   }
 
+ 
   display() {
     let current = this.head;
     while (current) {

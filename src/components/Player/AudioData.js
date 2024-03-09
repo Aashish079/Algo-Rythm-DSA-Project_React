@@ -2,6 +2,14 @@ import DoublyLinkedList from "../../algorithms/dll.js";
 import song1 from "../../assets/music/02. Paul Flint - Savage.mp3";
 import song2 from "../../assets/music/04. Syn Cole - Feel Good.mp3";
 import song3 from "../../assets/music/03. Retrovision - Puzzle.mp3";
+import song4 from "../../assets/music/dance-with-me-3.mp3";
+import song5 from "../../assets/music/Have You Ever Seen the Rain Cover by Daya Sagar Baral.mp3";
+import song6 from "../../assets/music/lullaby-1.mp3";
+import song7 from "../../assets/music/lullaby-night-531.mp3";
+import song8 from "../../assets/music/Perfect Cover.mp3";
+import song9 from "../../assets/music/Purnimako Chandramalai Cover by Daya Sagar Baral.mp3";
+import song10 from "../../assets/music/Until I Found You Dhiraj Thapa (IOE Pulchowk).mp3";
+
 import RedBlackTree from "../../algorithms/red_black_tree.js";
 
 const songsdata = [
@@ -29,6 +37,55 @@ const songsdata = [
     cover: "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg",
     url: song3,
   },
+  {
+    title: "Dance With Me",
+    artist: "Unknown Artist",
+    artistCover: "", // Update this if available
+    cover: "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg", // Update this if available
+    url: song4,
+  },
+  {
+    title: "Have You Ever Seen the Rain (Cover by Daya Sagar Baral)",
+    artist: "Daya Sagar Baral",
+    artistCover: "", // Update this if available
+    cover: "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg", // Update this if available
+    url: song5,
+  },
+  {
+    title: "Lullaby",
+    artist: "Unknown Artist",
+    artistCover: "", // Update this if available
+    cover: "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg", // Update this if available
+    url: song6,
+  },
+  {
+    title: "Lullaby Night",
+    artist: "Unknown Artist",
+    artistCover: "", // Update this if available
+    cover: "", // Update this if available
+    url: song7,
+  },
+  {
+    title: "Perfect (Cover)",
+    artist: "Unknown Artist",
+    artistCover: "", // Update this if available
+    cover: "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg", // Update this if available
+    url: song8,
+  },
+  {
+    title: "Purnimako Chandramalai (Cover by Daya Sagar Baral)",
+    artist: "Daya Sagar Baral",
+    artistCover: "", // Update this if available
+    cover: "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg", // Update this if available
+    url: song9,
+  },
+  {
+    title: "Until I Found You (Dhiraj Thapa)",
+    artist: "Dhiraj Thapa",
+    artistCover: "", // Update this if available
+    cover: "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg", // Update this if available
+    url: song10,
+  },
 ];
 
 class song_node {
@@ -42,6 +99,13 @@ class song_node {
 const s1 = new song_node();
 const s2 = new song_node();
 const s3 = new song_node();
+const s4 = new song_node();
+const s5 = new song_node();
+const s6 = new song_node();
+const s7 = new song_node();
+const s8 = new song_node();
+const s9 = new song_node();
+const s10 = new song_node();
 
 s1.title = "zFlint - Savage";
 s1.artist = "Paul Flint";
@@ -58,10 +122,52 @@ s3.artist = "Syn Cole";
 s3.url = song2;
 s3.cover = "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg";
 
+s4.title = "Dance With Me";
+s4.artist = "Unknown Artist";
+s4.url = song4;
+s4.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"; // Update this if available
+
+s5.title = "Have You Ever Seen the Rain (Cover by Daya Sagar Baral)";
+s5.artist = "Daya Sagar Baral";
+s5.url = song5;
+s5.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"; // Update this if available
+
+s6.title = "Lullaby";
+s6.artist = "Unknown Artist";
+s6.url = song6;
+s6.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"; // Update this if available
+
+s7.title = "Lullaby Night";
+s7.artist = "Unknown Artist";
+s7.url = song7;
+s7.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"; // Update this if available
+
+s8.title = "Perfect (Cover)";
+s8.artist = "Unknown Artist";
+s8.url = song8;
+s8.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"; // Update this if available
+
+s9.title = "Purnimako Chandramalai (Cover by Daya Sagar Baral)";
+s9.artist = "Daya Sagar Baral";
+s9.url = song9;
+s9.cover = "../../assets/images/purnima_by_dsb_sir.png"; // Update this if available
+
+s10.title = "Until I Found You (Dhiraj Thapa)";
+s10.artist = "Dhiraj Thapa";
+s10.url = song10;
+s10.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"; // Update this if available
+
 const song_dll = new DoublyLinkedList();
 song_dll.pushBack(s1);
 song_dll.pushBack(s2);
 song_dll.pushBack(s3);
+song_dll.pushBack(s4);
+song_dll.pushBack(s5);
+song_dll.pushBack(s6);
+song_dll.pushBack(s7);
+song_dll.pushBack(s8);
+song_dll.pushBack(s9);
+song_dll.pushBack(s10);
 
 // tree
 const songTree = new RedBlackTree();
