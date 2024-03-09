@@ -16,8 +16,8 @@ const songsdata = [
     title: "Retrovision - Puzzle",
     artist: "Retrovision",
     artistCover:
-      "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/377/325x325/1597166077_RAHYVPaDfQ_RetroVision.png",
-      cover: "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg",
+    "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/377/325x325/1597166077_RAHYVPaDfQ_RetroVision.png",
+    cover: "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg",
     url: song2,
   },
   {
@@ -46,14 +46,17 @@ const s3 = new song_node();
 
 
 s1.title = "Paul Flint - Savage";
+s1.artist = "Paul Flint";
 s1.url = song1;
 s1.cover = "https://i1.sndcdn.com/artworks-000178640584-kie7ij-t500x500.jpg"
 
 s2.title = "Retrovision - Puzzle";
+s2.artist = "Retrovision";
 s2.url = song3;
 s2.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"
 
 s3.title = "Syn Cole - Feel Good";
+s3.artist = "Syn Cole";
 s3.url = song2;
 s3.cover = "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg"
 
