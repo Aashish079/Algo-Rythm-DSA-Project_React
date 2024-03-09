@@ -2,11 +2,11 @@ import DoublyLinkedList from "../../algorithms/dll.js";
 import song1 from "../../assets/music/02. Paul Flint - Savage.mp3";
 import song2 from "../../assets/music/04. Syn Cole - Feel Good.mp3";
 import song3 from "../../assets/music/03. Retrovision - Puzzle.mp3";
-import RedBlackTree from "../algorithms/red_black_tree";
+import RedBlackTree from "../../algorithms/red_black_tree.js";
 
 const songsdata = [
   {
-    title: "Paul Flint - Savage",
+    title: "zFlint - Savage",
     artist: "Paul Flint",
     artistCover:
       "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/352/325x325/1597165641_NFWo1NewLF_Paul-Flint.png",
@@ -43,15 +43,18 @@ const s1 = new song_node();
 const s2 = new song_node();
 const s3 = new song_node();
 
-s1.title = "Paul Flint - Savage";
+s1.title = "zFlint - Savage";
+s1.artist = "Paul Flint";
 s1.url = song1;
 s1.cover = "https://i1.sndcdn.com/artworks-000178640584-kie7ij-t500x500.jpg";
 
 s2.title = "Retrovision - Puzzle";
+s2.artist = "Retrovision";
 s2.url = song3;
 s2.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg";
 
 s3.title = "Syn Cole - Feel Good";
+s3.artist = "Syn Cole";
 s3.url = song2;
 s3.cover = "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg";
 
@@ -60,26 +63,23 @@ song_dll.pushBack(s1);
 song_dll.pushBack(s2);
 song_dll.pushBack(s3);
 
-
-// tree 
+// tree
 const songTree = new RedBlackTree();
 let cur_ptr = song_dll.head;
 let counter = 0;
-while (counter<song_dll.size) {
+while (counter < song_dll.size) {
   songTree.add(cur_ptr.data.title, cur_ptr.data);
   cur_ptr = cur_ptr.next;
   counter++;
 }
-
 
 const sortedList = songTree.inOrderTraversal(songTree.root);
 console.log(sortedList);
 
 // making sorted sll
 const sorted_song_dll = new DoublyLinkedList();
-for(let i =0;i<sortedList.length;i++)
-{
-sorted_song_dll.pushBack(sortedList[i]);
+for (let i = 0; i < sortedList.length; i++) {
+  sorted_song_dll.pushBack(sortedList[i]);
 }
 
 window.current_song_ptr = song_dll.head;
