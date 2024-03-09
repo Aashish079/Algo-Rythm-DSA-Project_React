@@ -49,15 +49,15 @@ s1.title = "Paul Flint - Savage";
 s1.url = song1;
 s1.cover = "https://i1.sndcdn.com/artworks-000178640584-kie7ij-t500x500.jpg"
 
+s2.title = "Retrovision - Puzzle";
+s2.url = song3;
+s2.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"
 
-s2.title = "Syn Cole - Feel Good";
-s2.url = song2;
-s2.cover = "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg"
+s3.title = "Syn Cole - Feel Good";
+s3.url = song2;
+s3.cover = "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg"
 
 
-s3.title = "Retrovision - Puzzle";
-s3.url = song3;
-s3.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"
 
 const song_dll = new DoublyLinkedList();
 song_dll.pushBack(s1);

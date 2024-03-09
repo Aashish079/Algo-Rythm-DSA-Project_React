@@ -16,11 +16,16 @@ const Library = ({
   currentSong_dll,
   setCurrentSong_dll,
 }) => {
+    // updateSongs = () => {
+    //     setSongs(...songs, ...sortedList)
+    // }
+
+
   return (
     <div className={`${libraryStatus ? "library-active" : "library"}`}>
       <div className="library-header">
         <h2>Songs</h2>
-        <button>Sort</button>
+        <button >Sort</button>
       </div>
 
       <div>
