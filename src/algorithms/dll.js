@@ -12,6 +12,16 @@ class DoublyLinkedList {
     this.tail = null;
     this.size = 0;
   }
+  search(title){
+    let ptr = this.head;
+    do{
+      if(ptr.data.title === title){
+        return ptr;
+      }
+      ptr = ptr.next;
+  }while(ptr != this.head);
+  return null;
+  }
 
   isEmpty() {
     return this.size === 0;
@@ -100,18 +110,22 @@ class DoublyLinkedList {
       current = current.next;
     }
   }
+  
 }
+
+
+
 
 export default DoublyLinkedList;
 // Example usage:
-const dll = new DoublyLinkedList();
-dll.pushBack(1);
-dll.pushBack("anup");
-dll.pushBack(3);
-// dll.display(); // Output: 1 anup 3
-var ptr = dll.head;
-ptr = ptr.next;
-ptr = ptr.prev;
-console.log(ptr.data);
+// const dll = new DoublyLinkedList();
+// dll.pushBack(1);
+// dll.pushBack("anup");
+// dll.pushBack(3);
+// // dll.display(); // Output: 1 anup 3
+// var ptr = dll.head;
+// ptr = ptr.next;
+// ptr = ptr.prev;
+// console.log(ptr.data);
 
 // console.log(dll.tail.prev.prev.data);
