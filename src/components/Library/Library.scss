@@ -56,11 +56,21 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 20rem;
+    width: 25rem;
     height: 100%;
-    background-color: red;
+    background-color: #192734;
     font-weight: 400;
     box-shadow: 2px 2px 50px rgb(204, 204, 204);
     overflow: scroll;
     z-index: 1000;
+    .library-header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem;
+        svg {
+            cursor: pointer;
+        }
+    }
 }
