@@ -3,6 +3,7 @@ import Nav from "./components/Nav/Nav.jsx";
 import "./App.scss";
 import { songsdata } from "./components/Player/AudioData.js";
 import { useRef, useState, useEffect } from "react";
+import Library from "./components/Library/Library.jsx";
 
 const App = () => {
   const [songs, setSongs] = useState(songsdata);
@@ -32,8 +33,16 @@ const App = () => {
   };
 
   return (
-    <div className={`${libraryStatus?'library-active':''}`}>
+    <div>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+      <Library
+        songs={songs}
+        setSongs={setSongs}
+        libraryStatus={libraryStatus}
+        setLibraryStatus={setLibraryStatus}
+        // setIsInFavorites={setIsInFavorites}
+        // favoriteSongs={favoriteSongs}
+      />
       <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onPlaying} />
       <Player
         songs={songs}
