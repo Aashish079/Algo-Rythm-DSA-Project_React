@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./SongCard.scss";
 
-const SongCard = ({ song,currentSong, setCurrentSong, libraryStatus, setLibraryStatus }) => {
+const SongCard = ({ song,currentSong, setCurrentSong, currentSong_dll, libraryStatus, setLibraryStatus }) => {
   const selectSongHandler = () => {
     setCurrentSong(song);
     setLibraryStatus(!libraryStatus);
@@ -11,7 +11,7 @@ const SongCard = ({ song,currentSong, setCurrentSong, libraryStatus, setLibraryS
 
   return (
     <div
-      className={`library-song ${song.title == currentSong.title ? "selected" : ""}`}
+      className={`library-song ${song.title == currentSong_dll.data.title ? "selected" : ""}`}
       onClick={selectSongHandler}
     >
       <img src={song.cover} alt={song.title} width="80" height='80' />

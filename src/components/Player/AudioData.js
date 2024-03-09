@@ -1,3 +1,4 @@
+import DoublyLinkedList from "../../algorithms/dll.js";
 import song1 from "../../assets/music/02. Paul Flint - Savage.mp3";
 import song2 from "../../assets/music/04. Syn Cole - Feel Good.mp3";
 import song3 from "../../assets/music/03. Retrovision - Puzzle.mp3";
@@ -29,7 +30,44 @@ const songsdata = [
 
   },
 ];
-export { songsdata };
+
+class song_node {
+  constructor() {
+    this.title = null;
+    this.url = null;
+    this.cover = null;
+  }
+}
+
+const s1 = new song_node();
+const s2 = new song_node();
+const s3 = new song_node();
+
+
+
+s1.title = "Paul Flint - Savage";
+s1.url = song1;
+s1.cover = "https://i1.sndcdn.com/artworks-000178640584-kie7ij-t500x500.jpg"
+
+s2.title = "Retrovision - Puzzle";
+s2.url = song3;
+s2.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"
+
+s3.title = "Syn Cole - Feel Good";
+s3.url = song2;
+s3.cover = "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg"
+
+
+
+const song_dll = new DoublyLinkedList();
+song_dll.pushBack(s1);
+song_dll.pushBack(s2);
+song_dll.pushBack(s3);
+
+
+
+window.current_song_ptr = song_dll.head;
+export {  song_dll, song_node, songsdata };
 
 //Better Data
 // let savage = {
