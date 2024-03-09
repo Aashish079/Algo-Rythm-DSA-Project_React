@@ -4,29 +4,29 @@
 // import song3 from "../assets/music/03. Retrovision - Puzzle.mp3";
 // import song2 from "../assets/music/04. Syn Cole - Feel Good.mp3";
 
-import fs from "fs";
+// import fs from "fs";
 
-const directoryPath = "../assets/music";
+// const directoryPath = "../assets/music";
 
-// Read the contents of the directory
-const readDirectory = async (directoryPath) => {
-  const file_array = await fs.readdir(directoryPath, (err, files) => {
-    const array = [];
-    if (err) {
-      console.error("Error reading directory:", err);
-      return;
-    }
+// // Read the contents of the directory
+// const readDirectory = async (directoryPath) => {
+//   const file_array = await fs.readdir(directoryPath, (err, files) => {
+//     const array = [];
+//     if (err) {
+//       console.error("Error reading directory:", err);
+//       return;
+//     }
 
-    files.forEach((file) => {
-      array.push(file);
-    });
-    return array;
-  });
-  return file_array;
-};
+//     files.forEach((file) => {
+//       array.push(file);
+//     });
+//     return array;
+//   });
+//   return file_array;
+// };
 
-const data = setTimeout(() => readDirectory(directoryPath), 50);
-console.log(data);
+// const data = setTimeout(() => readDirectory(directoryPath), 50);
+// console.log(data);
 
 // const songsdata = [
 //   {
@@ -50,6 +50,8 @@ import DoublyLinkedList from "../algorithms/dll";
 import song1 from "../assets/music/02. Paul Flint - Savage.mp3";
 import song3 from "../assets/music/03. Retrovision - Puzzle.mp3";
 import song2 from "../assets/music/04. Syn Cole - Feel Good.mp3";
+import RedBlackTree from "../algorithms/red_black_tree";
+// import { cursorTo } from "readline";
 
 class song_node {
   constructor() {
@@ -76,8 +78,18 @@ song_dll.pushBack(s1);
 song_dll.pushBack(s2);
 song_dll.pushBack(s3);
 
+const songTree = new RedBlackTree();
+let cur_ptr = song_dll.head;
+while (cur_ptr != null) {
+  songTree.add(cur_ptr.data.title, cur_ptr.data);
+  cur_ptr = cur_ptr.next;
+}
+
+const sortedList = songTree.inOrderTraversal(songTree.root);
+console.log(sortedList);
+
 window.current_song_ptr = song_dll.head;
-export { song_dll, song_node };
+export { song_dll, songTree, sortedList, song_node };
 
 //Better Data
 // let savage = {
