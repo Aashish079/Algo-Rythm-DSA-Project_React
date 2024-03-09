@@ -37,8 +37,8 @@ class DoublyLinkedList {
       this.head = newNode;
       this.tail = newNode;
     } else {
-      newNode.prev = this.tail;
       this.tail.next = newNode;
+      newNode.prev = this.tail;
       this.tail = newNode;
     }
     this.size++;
@@ -89,7 +89,7 @@ class DoublyLinkedList {
     return removedData;
   }
 
-  display() {
+ display() {
     let current = this.head;
     while (current) {
       console.log(current.data);
@@ -99,15 +99,20 @@ class DoublyLinkedList {
 }
 
 export default DoublyLinkedList;
-// // Example usage:
-// const dll = new DoublyLinkedList();
-// dll.pushBack(1);
-// dll.pushBack("anup");
-// dll.pushBack(3);
+// Example usage:
+const dll = new DoublyLinkedList();
+dll.pushBack(1);
+dll.pushBack("anup");
+dll.pushBack(3);
 // dll.display(); // Output: 1 anup 3
-// console.log("Front:", dll.front()); // Output: Front: 1
-// console.log("Back:", dll.back()); // Output: Back: 3
-// dll.popBack();
-// dll.display(); // Output: 1 anup
-// dll.popFront();
-// dll.display(); // Output: anup
+var ptr = dll.head;
+ptr= ptr.next;
+ptr = ptr.prev;
+console.log(ptr.data);
+
+// console.log(dll.tail.prev.prev.data);
+
+
+
+
+

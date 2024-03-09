@@ -1,8 +1,11 @@
 import Player from "./Player/Player";
 import "./Player/player.scss";
-import { songsdata } from "./Player/AudioData.js";
 import { useRef, useState, useEffect } from "react";
 import RedBlackTree from "./algorithms/red_black_tree.js";
+import { song_dll } from "./Player/AudioData.js";
+import { BsArrowsExpandVertical } from "react-icons/bs";
+
+// apil change start
 
 const App = () => {
   //Inserting songsdata into redblack tree
@@ -12,13 +15,15 @@ const App = () => {
     songsTree.add(item.title, item.url);
   });
 
-  const [songs, setSongs] = useState(songsdata);
+  const [songs, setSongs] = useState(song_dll);
+
   const [isplaying, setisplaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(songsdata[1]);
+  const [currentSong, setCurrentSong] = useState(window.current_song_ptr);
 
   const audioElem = useRef();
 
   useEffect(() => {
+    songs;
     if (isplaying) {
       audioElem.current.play();
     } else {
@@ -46,12 +51,16 @@ const App = () => {
 
   return (
     <div className="center-content">
-      <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onPlaying} />
+      <audio
+        src={currentSong.data.url}
+        ref={audioElem}
+        onTimeUpdate={onPlaying}
+      />
       <Player
         songs={songs}
         setSongs={setSongs}
-        isplaying={isplaying}
-        setisplaying={setisplaying}
+        isPlaying={isplaying}
+        setIsPlaying={setisplaying}
         audioElem={audioElem}
         currentSong={currentSong}
         setCurrentSong={setCurrentSong}
