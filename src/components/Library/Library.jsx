@@ -28,7 +28,7 @@ const Library = ({
 
   const sortedList = songTree.inOrderTraversal(songTree.root);
 
-  console.log(sortedList);
+  // console.log(sortedList);
 
   let updateSongs = () => {
     setSongs(sortedList);

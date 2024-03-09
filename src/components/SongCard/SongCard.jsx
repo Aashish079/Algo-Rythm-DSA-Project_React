@@ -1,10 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { song_dll } from "../Player/AudioData";
 import "./SongCard.scss";
 
-const SongCard = ({ song,currentSong, setCurrentSong, currentSong_dll, libraryStatus, setLibraryStatus }) => {
+const SongCard = ({ song,currentSong, setCurrentSong, currentSong_dll,setCurrentSong_dll, libraryStatus, setLibraryStatus }) => {
   const selectSongHandler = () => {
-    setCurrentSong(song);
+    console.log(currentSong_dll);
+    window.current_song_ptr = song_dll.search(song.title);
+    setCurrentSong_dll(window.current_song_ptr);
     setLibraryStatus(!libraryStatus);
   };
 ;
