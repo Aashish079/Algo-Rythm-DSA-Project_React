@@ -1,15 +1,17 @@
 import Player from "./components/Player/Player.jsx";
 import Nav from "./components/Nav/Nav.jsx";
 import "./App.scss";
-import { songsdata } from "./components/Player/AudioData.js";
+import { song_dll, songsdata } from "./components/Player/AudioData.js";
 import { useRef, useState, useEffect } from "react";
 import Library from "./components/Library/Library.jsx";
 
 const App = () => {
+  const [songs_dll, setSongs_dll] = useState(song_dll);
   const [songs, setSongs] = useState(songsdata);
+  const [currentSong_dll, setCurrentSong_dll] = useState(window.current_song_ptr);
+  const [currentSong, setCurrentSong] = useState(songsdata[0]);
   const [libraryStatus, setLibraryStatus] = useState(false);
   const [isplaying, setisplaying] = useState(false);
-  const [currentSong, setCurrentSong] = useState(songsdata[1]);
 
   const audioElem = useRef();
 
@@ -40,19 +42,19 @@ const App = () => {
         setSongs={setSongs}
         libraryStatus={libraryStatus}
         setLibraryStatus={setLibraryStatus}
-        currentSong={currentSong}
-        setCurrentSong={setCurrentSong}
+        currentSong={currentSong_dll}
+        setCurrentSong={setCurrentSong_dll}
 
       />
-      <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onPlaying} />
+      <audio src={currentSong_dll.data.url} ref={audioElem} onTimeUpdate={onPlaying} />
       <Player
-        songs={songs}
-        setSongs={setSongs}
+        songs={songs_dll}
+        setSongs={setSongs_dll}
         isPlaying={isplaying}
         setIsPlaying={setisplaying}
         audioElem={audioElem}
-        currentSong={currentSong}
-        setCurrentSong={setCurrentSong}
+        currentSong={currentSong_dll}
+        setCurrentSong={setCurrentSong_dll}
       />
       
     </div>

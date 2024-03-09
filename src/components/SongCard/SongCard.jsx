@@ -11,7 +11,7 @@ const SongCard = ({ song,currentSong, setCurrentSong, libraryStatus, setLibraryS
 
   return (
     <div
-      className={`library-song ${song.title == currentSong.title ? "selected" : ""}`}
+      className={`library-song ${song.title == currentSong.data.title ? "selected" : ""}`}
       onClick={selectSongHandler}
     >
       <img src={song.cover} alt={song.title} width="80" height='80' />

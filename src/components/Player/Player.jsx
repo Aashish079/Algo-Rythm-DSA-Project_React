@@ -25,14 +25,9 @@ const Player = ({audioElem, isPlaying, setIsPlaying, currentSong, setCurrentSong
 
   const skipBack = ()=>
   {
-    const index = songs.findIndex(x=>x.title == currentSong.title);
-    if (index == 0)
-    {
-      setCurrentSong(songs[songs.length - 1])
-    }
-    else
-    {
-      setCurrentSong(songs[index - 1])
+    if (window.current_song_ptr.prev !== null) {
+      window.current_song_ptr = window.current_song_ptr.prev;
+      setCurrentSong(window.current_song_ptr);
     }
     audioElem.current.currentTime = 0;
     
@@ -41,27 +36,21 @@ const Player = ({audioElem, isPlaying, setIsPlaying, currentSong, setCurrentSong
 
   const skiptoNext = ()=>
   {
-    const index = songs.findIndex(x=>x.title == currentSong.title);
+    if (window.current_song_ptr.next !== null) {
+      window.current_song_ptr = window.current_song_ptr.next;
+      setCurrentSong(window.current_song_ptr);
+    }
 
-    if (index == songs.length-1)
-    {
-      setCurrentSong(songs[0])
-    }
-    else
-    {
-      setCurrentSong(songs[index + 1])
-    }
     audioElem.current.currentTime = 0;
-    
   }
 
   return (
     <div className='player_container'>
       <div className='cover'>
-        <img src={currentSong.cover} alt={currentSong.title}/>
+        <img src={currentSong.data.cover} alt={currentSong.title}/>
       </div>
       <div className="title">
-        <p>{currentSong.title}</p>
+        <p>{currentSong.data.title}</p>
       </div>
       <div className="navigation">
         <div className="navigation_wrapper" onClick={checkWidth} ref={clickRef}>
@@ -88,7 +77,5 @@ Player.propTypes = {
   audioElem: PropTypes.object, // or other appropriate PropType
   isPlaying: PropTypes.bool,
   setIsPlaying: PropTypes.func,
-  currentSong: PropTypes.object,
   setCurrentSong: PropTypes.func,
-  songs: PropTypes.array
 };
