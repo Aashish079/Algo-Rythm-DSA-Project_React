@@ -2,6 +2,9 @@ import DoublyLinkedList from "../../algorithms/dll.js";
 import song1 from "../../assets/music/02. Paul Flint - Savage.mp3";
 import song2 from "../../assets/music/04. Syn Cole - Feel Good.mp3";
 import song3 from "../../assets/music/03. Retrovision - Puzzle.mp3";
+import song4 from "../../assets/music/07. Jack Shore - Dreaming of Me.mp3";
+import song5 from "../../assets/music/09. Tobu - Cloud9.mp3";
+// import song6 from "../../assets/music/08. Halvorsen - Phoenix.mp3"
 
 const songsdata = [
   {
@@ -9,14 +12,14 @@ const songsdata = [
     artist: "Paul Flint",
     artistCover:
       "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/352/325x325/1597165641_NFWo1NewLF_Paul-Flint.png",
-      cover: "https://i1.sndcdn.com/artworks-000178640584-kie7ij-t500x500.jpg",
+    cover: "https://i1.sndcdn.com/artworks-000178640584-kie7ij-t500x500.jpg",
     url: song1,
   },
   {
     title: "Retrovision - Puzzle",
     artist: "Retrovision",
     artistCover:
-    "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/377/325x325/1597166077_RAHYVPaDfQ_RetroVision.png",
+      "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/377/325x325/1597166077_RAHYVPaDfQ_RetroVision.png",
     cover: "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg",
     url: song2,
   },
@@ -27,7 +30,22 @@ const songsdata = [
       "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/434/325x325/1597179223_bgwJeQP8Gl_Syn-Cole.png",
     cover: "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg",
     url: song3,
-
+  },
+  {
+    title: "Jack Shore - Dreaming of Me",
+    artist: "Jack Shore",
+    artistCover:
+      "https://ncsmusic.s3.eu-west-1.amazonaws.com/artists/000/000/352/325x325/1597165641_NFWo1NewLF_Paul-Flint.png",
+    cover: "https://ncsmusic.s3.eu-west-1.amazonaws.com/tracks/000/001/033/325x325/dreaming-of-me-1635854432-lB4hOLMPWe.jpg",
+    url: song4,
+  },
+  {
+    title: "06. Tobu - Roots",
+    artist: "Tobu",
+    artistCover:
+      "https://lastfm.freetls.fastly.net/i/u/300x300/d55932d44b33e431e68a3c0c4daceb98.png",
+    cover: "https://lastfm.freetls.fastly.net/i/u/300x300/d55932d44b33e431e68a3c0c4daceb98.png",
+    url: song5
   },
 ];
 
@@ -42,35 +60,45 @@ class song_node {
 const s1 = new song_node();
 const s2 = new song_node();
 const s3 = new song_node();
-
-
+const s4 = new song_node();
+const s5 = new song_node();
 
 s1.title = "Paul Flint - Savage";
 s1.artist = "Paul Flint";
 s1.url = song1;
-s1.cover = "https://i1.sndcdn.com/artworks-000178640584-kie7ij-t500x500.jpg"
+s1.cover = "https://i1.sndcdn.com/artworks-000178640584-kie7ij-t500x500.jpg";
 
 s2.title = "Retrovision - Puzzle";
 s2.artist = "Retrovision";
-s2.url = song3;
-s2.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg"
+s2.url = song2;
+s2.cover = "https://i1.sndcdn.com/artworks-000196908840-gcl3jn-t500x500.jpg";
 
 s3.title = "Syn Cole - Feel Good";
 s3.artist = "Syn Cole";
-s3.url = song2;
-s3.cover = "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg"
+s3.url = song3;
+s3.cover = "https://i1.sndcdn.com/artworks-000149107009-m881ek-t500x500.jpg";
 
+s4.title = "Jack Shore - Dreaming of Me";
+s4.artist = "Jack Shore";
+s4.url = song4;
+s4.cover = "https://ncsmusic.s3.eu-west-1.amazonaws.com/tracks/000/001/033/325x325/dreaming-of-me-1635854432-lB4hOLMPWe.jpg";
 
+s5.title = "06. Tobu - Roots";
+s5.artist = "Tobu";
+s5.url = song5;
+s5.cover = "https://lastfm.freetls.fastly.net/i/u/300x300/d55932d44b33e431e68a3c0c4daceb98.png";
 
 const song_dll = new DoublyLinkedList();
 song_dll.pushBack(s1);
 song_dll.pushBack(s2);
 song_dll.pushBack(s3);
+song_dll.pushBack(s4);
+song_dll.pushBack(s5);
 
 
 
 window.current_song_ptr = song_dll.head;
-export {  song_dll, song_node, songsdata };
+export { song_dll, song_node, songsdata };
 
 //Better Data
 // let savage = {

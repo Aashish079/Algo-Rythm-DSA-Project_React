@@ -26,19 +26,25 @@ const Library = ({
     cur_ptr = cur_ptr.next;
   }while (cur_ptr != song_dll.head);
 
-  const sortedList = songTree.inOrderTraversal(songTree.root);
+  const sortedListAsc = songTree.inOrderTraversal(songTree.root);
+  // const sortedListDsc = songTree.reverseOrderTraversal(songTree.root);
+  const sortedListDsc = songTree.inOrderTraversal(songTree.root).reverse();
 
   // console.log(sortedList);
 
-  let updateSongs = () => {
-    setSongs(sortedList);
+  let updateSongsAsc = () => {
+    setSongs(sortedListAsc);
+  };
+  let updateSongsDsc = () => {
+    setSongs(sortedListDsc);
   };
 
   return (
     <div className={`${libraryStatus ? "library-active" : "library"}`}>
       <div className="library-header">
         <h2>Songs</h2>
-        <button onClick={updateSongs}>Sort</button>
+        <button onClick={updateSongsAsc}>Sort Asc</button>
+        <button onClick={updateSongsDsc}>Sort Dsc</button>
       </div>
 
       <div>
